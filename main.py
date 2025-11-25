@@ -10,11 +10,11 @@ from errors import GameOfLifeError
 
 def ask_board_from_user() -> Board:
     """
-    Interactively ask the user for board dimensions and initial alive cells.
+    Ask the user for board size and initial alive cells.
 
-    The user is first asked to enter the number of rows and columns.
-    Then the user can enter coordinates of alive cells in the form "row,col",
-    one per line. An empty line finishes the input.
+    First, rows and columns are entered.
+    Then alive cells are entered as "row,col" (one per line).
+    An empty line finishes the input.
     """
     while True:
         try:

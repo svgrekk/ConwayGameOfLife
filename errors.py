@@ -17,15 +17,13 @@ class InvalidGridSizeError(GameOfLifeError):
 
 class PatternParseError(GameOfLifeError):
     """
-    Raised when there is an error while parsing a pattern file
-    (e.g. malformed lines, missing SIZE, etc.).
+    Raised when there is an error while parsing a pattern file.
     """
     pass
 
 
 class RuleSetError(GameOfLifeError):
     """
-    Raised when there is an issue with a ruleset:
-    for example, when the requested ruleset name does not exist.
+    Raised when there is an issue with a ruleset.
     """
     pass

@@ -47,15 +47,13 @@ class Board:
 
     def get_cell(self, row: int, col: int) -> int:
         """
-        Get the state of a cell on the board.
+        Return the value of a cell.
 
-        If the cell is outside the board boundaries, this function returns 0.
-        This is convenient when counting neighbors: cells outside the grid
-        are considered dead by default.
+        Cells outside the board return 0 (treated as dead).
 
-        :param row: Row index of the cell.
-        :param col: Column index of the cell.
-        :return: 1 if the cell is alive, 0 if dead or out of bounds.
+        :param row: Row index.
+        :param col: Column index.
+        :return: 1 if the cell is alive, 0 otherwise.
         """
         if not (0 <= row < self.rows and 0 <= col < self.cols):
             return 0
@@ -72,10 +70,9 @@ class Board:
 
     def print(self) -> None:
         """
-        Print the board to the console in a human-readable form.
+        Print the board to the console.
 
         Alive cells are shown as '█', dead cells as '.'.
-        This is just a simple text-based visualization.
         """
         for row in self.grid:
             line = "".join("█" if cell else "." for cell in row)

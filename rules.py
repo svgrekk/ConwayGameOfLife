@@ -15,24 +15,23 @@ RULESETS: Dict[str, RuleFunc] = {}
 
 def ruleset(name: str) -> Callable[[RuleFunc], RuleFunc]:
     """
-    Decorator used to register a new ruleset.
+    Decorator that registers a rule function under a given name.
 
-    Usage:
+    Example:
 
         @ruleset("classic")
         def classic_rule(is_alive: int, neighbors: int) -> int:
             ...
 
-    The decorated function is automatically stored in the RULESETS
-    dictionary under the given name. This allows us to dynamically
-    extend the simulation with new rule sets without modifying the
-    core engine.
+    After decoration, the function is stored in RULESETS[name],
+    so it can be retrieved later with get_ruleset(name).
     """
     def decorator(func: RuleFunc) -> RuleFunc:
         RULESETS[name] = func
         return func
 
     return decorator
+
 
 
 @ruleset("classic")
