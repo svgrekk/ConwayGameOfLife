@@ -1,41 +1,38 @@
-# Conway's Game of Life (ACIT4420-1)
+# Conway's Game of Life (ACIT4420-1 – Final Assignment, Part II)
 
-This repository contains **Part II** of the final assignment for the course  
-**ACIT4420-1 25H – Problem-solving with scripting**.
+This project is **Part II** of the final assignment for  
+**ACIT4420-1 – Problem-solving with scripting**.
 
-The task is to implement a simulator for **Conway’s Game of Life** that demonstrates:
+The code implements Conway’s Game of Life and demonstrates:
 
-- use of multiple Python modules,
-- file handling (loading initial patterns, optional logging),
-- regular expressions for parsing pattern files,
+- multiple Python modules and clear separation of responsibilities,
+- file handling (loading initial board patterns, logging simulation states),
+- regular expressions for pattern parsing,
 - custom error handling,
-- basic metaprogramming (dynamic registration of rulesets),
-- and (optionally) a simple graphical interface using Pygame.
-
-The focus is not on “fancy graphics”, but on code structure, modularity, and use of the required language features.
+- metaprogramming with a decorator-based ruleset registry,
+- graphical interaction using Pygame.
 
 ---
 
-## Project structure
+## Files and structure
 
-```text
-ConwayGameOfLife/
-│
-├─ main.py           # Entry point: user interaction, mode selection, simulation start
-├─ board.py          # Board class (grid representation and simple operations)
-├─ rules.py          # Rulesets (classic, highlife) and decorator-based registry
-├─ patterns.py       # Loading initial patterns from files using regex
-├─ engine.py         # Core simulation logic: neighbors, next generation, run loop
-├─ ui_pygame.py      # Optional Pygame UI for interactive visualization
-├─ errors.py         # Custom exception classes used across the project
-│
-├─ configs/
-│   └─ glider.pattern   # Example pattern file
-│
-├─ logs/
-│   └─ simulation.log   # Simulation log (created at runtime in console mode)
-│
-└─ tests/               # (Optional) pytest tests
+- `main.py` – entry point, user interaction (menu, mode selection, starting simulation)  
+- `board.py` – `Board` class: grid (list of lists) and basic operations (get/set/clear/print/save)  
+- `rules.py` – rulesets (`classic`, `highlife`) + `@ruleset` decorator to register new rules dynamically  
+- `patterns.py` – reads pattern files from `configs/` using regex (`SIZE`, `ALIVE` lines)  
+- `engine.py` – core logic: neighbor counting, next generation, simulation loop  
+- `ui_pygame.py` – Pygame-based interactive UI (same engine, different front-end)  
+- `errors.py` – custom exceptions (`GameOfLifeError`, `InvalidGridSizeError`, `PatternParseError`, `RuleSetError`)  
+
+Folders:
+
+- `configs/`
+  - `glider.pattern` – example pattern
+  - `board_config` – custom pattern used in this assignment
+- `logs/`
+  - `simulation.log` – created when running console mode
+
+---
 
 ## Requirements
 
@@ -50,6 +47,8 @@ pip install pygame
 ~~~
 
 The rest of the project uses only the Python standard library.
+
+---
 
 ## Pattern format (`configs/*.pattern`, `configs/board_config`)
 
@@ -71,9 +70,6 @@ ALIVE 3,3
 - invalid lines or out-of-bounds coordinates raise `PatternParseError`.
 
 ---
-
-
-
 
 ## How to run and use
 
