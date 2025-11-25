@@ -1,0 +1,19 @@
+# Glider pattern for Conway's Game of Life
+# Coordinate system:
+#   - Rows and columns are zero-based
+#   - (0,0) is the top-left corner
+#
+# Board size: 10x10
+
+SIZE 20x20
+
+# Glider shape:
+#   . # .
+#   . . #
+#   # # #
+
+ALIVE 1,2
+ALIVE 2,3
+ALIVE 3,1
+ALIVE 3,2
+ALIVE 3,3
