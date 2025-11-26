@@ -1,16 +1,21 @@
-# Conway's Game of Life (ACIT4420-1 – Final Assignment, Part II)
+# ACIT4420 – Final Assignment, Part II
 
-This project is **Part II** of the final assignment for  
-**ACIT4420-1 – Problem-solving with scripting**.
 
-The code implements Conway’s Game of Life and demonstrates:
+# Conway's Game of Life (Part II)
 
-- multiple Python modules and clear separation of responsibilities,
-- file handling (loading initial board patterns, logging simulation states),
-- regular expressions for pattern parsing,
-- custom error handling,
-- metaprogramming with a decorator-based ruleset registry,
-- graphical interaction using Pygame.
+This repository contains a Conway's Game of Life simulator and forms **Part II** of a two-part final project.  
+Part I (courier routing) is provided in a separate repository; this part focuses entirely on cellular automata.
+
+The simulator:
+
+- runs Conway's Game of Life on a finite 2D grid,
+- supports loading initial patterns from simple text files,
+- offers a console mode for stepping through generations,
+- includes an interactive graphical mode built with Pygame (toggling cells, start/pause, clear),
+- allows multiple rulesets that are registered through a small decorator-based mechanism.
+
+The code is split into modules for the board representation, rules, pattern loading, simulation engine, user interface and error handling, so the same core logic can be reused in both console and graphical modes.
+
 
 ---
 
@@ -27,8 +32,7 @@ The code implements Conway’s Game of Life and demonstrates:
 Folders:
 
 - `configs/`
-  - `glider.pattern` – example pattern
-  - `board_config` – custom pattern used in this assignment
+  - `board_config` – custom pattern 
 - `logs/`
   - `simulation.log` – created when running console mode
 
